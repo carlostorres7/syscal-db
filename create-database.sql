@@ -32,8 +32,8 @@ create table users (
 insert into mains (name, path, title, icon) values 
     ( "dashboard", "/full/home", "dashboard", "bi bi-grid"),
     ( "servicios", "/full/services", "servicios", "bi bi-layout-text-window-reverse"),
-    ( "productos", "/full/product", "productos", "ri-list-settings-line"),
-    ( "tecnicos", "/full/technicians", "tecnicos", "ri-user-follow-line"),
+    ( "productos", "/full/products", "productos", "ri-list-settings-line"),
+    ( "tecnicos", "/full/technician/technician-list", "tecnicos", "ri-user-follow-line"),
     ( "consolidados", "/full/consolidated", "consolidados", "bi bi-bar-chart"),
     ( "ordenes-trabajo", "/full/work-orders", "ordenes de trabajo", "bi bi-file-earmark-text"),
     ( "hoja-vida", "/full/cv", "hoja de vida", "bi bi-file-earmark-medical"),
