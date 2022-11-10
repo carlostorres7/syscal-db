@@ -22,6 +22,7 @@ create table permissions (
 
 create table users (
     id serial primary key,
+    email varchar(250) not null,
     username varchar(250) not null,
     password varchar(250) not null,
     name varchar(250) not null,
@@ -68,7 +69,7 @@ insert into permissions (rol_id,main_id) values
     (3,9),
     (3,10);
 
-insert into users (name,username, password, rol_id) values 
-    ("Edwar Erazo", "edwarerazo", "sa..", 1),
-    ("Carlos Torres", "carlostorres", "sa..", 3),
-    ("Sara Erazo", "saraerazo", "sa..", 2);
+insert into users (name,email, username, password, rol_id) values 
+    ("Edwar Erazo", "edwarerazo321@gmail.com", "edwarerazo", "sa..", 1),
+    ("Carlos Torres", "edwarerazo321@gmail.com", "carlostorres", "sa..", 3),
+    ("Sara Erazo", "edwarerazo321@gmail.com", "saraerazo", "sa..", 2);
