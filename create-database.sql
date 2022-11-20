@@ -29,6 +29,14 @@ create table users (
     foreign key (rol_id) references roles(id)
 );
 
+create table code_email (
+	id serial primary key,
+    user_id bigint unsigned not null,
+    created_at timestamp not null default now(),
+    updated_at timestamp not null default now(),
+    foreign key (user_id) references users (id)
+);
+
 insert into mains (name, path, title, icon) values 
     ( "dashboard", "/full/home", "dashboard", "bi bi-grid"),
     ( "servicios", "/full/services", "servicios", "bi bi-layout-text-window-reverse"),
