@@ -4,7 +4,8 @@ create table mains (
     name varchar(250) not null,
     path varchar(250) not null,
     title varchar(250) not null,
-    icon varchar(250) not null
+    icon varchar(250) not null,
+    hidden boolean not null default false
 );
 
 create table roles (
@@ -38,16 +39,18 @@ create table code_email (
 );
 
 insert into mains (name, path, title, icon) values 
-    ( "dashboard", "/full/home", "dashboard", "bi bi-grid"),
-    ( "servicios", "/full/services", "servicios", "bi bi-layout-text-window-reverse"),
-    ( "productos", "/full/profile", "productos", "ri-list-settings-line"),
-    ( "tecnicos", "/full/profile", "tecnicos", "ri-user-follow-line"),
-    ( "consolidados", "/full/profile", "consolidados", "bi bi-bar-chart"),
-    ( "ordenes-trabajo", "/full/profile", "ordenes de trabajo", "bi bi-file-earmark-text"),
-    ( "hoja-vida", "/full/profile", "hoja de vida", "bi bi-file-earmark-medical"),
-    ( "users", "/full/profile", "users", "bx bxs-user-detail"),
-    ( "profile", "/full/profile", "Profile", "bx bxs-user"),
-    ( "contact", "/full/contact", "Contact", "bx bx-help-circle");
+( "ordenes-trabajo", "/full/work-orders", "ordenes de trabajo", "bi bi-file-earmark-text"),
+( "hoja-vida", "/full/cv", "hoja de vida", "bi bi-file-earmark-medical"),
+( "consolidados", "/full/consolidated", "consolidados", "bi bi-bar-chart"),
+( "tecnicos", "/full/technician/list", "tecnicos", "ri-user-follow-line"),
+( "servicios", "/full/services/list", "servicios", "bi bi-layout-text-window-reverse"),
+( "productos", "/full/products", "productos", "ri-list-settings-line"),
+( "users", "/full/users", "users", "bx bxs-user-detail"),
+( "contact", "/full/contact", "Contact", "bx bx-help-circle"),
+
+( "dashboard", "/full/home", "dashboard", "bi bi-grid"),    
+( "profile", "/full/profile", "Profile", "bx bxs-user");
+
 
 insert into roles (name) values ("ADMIN"),("CLIENTE"),("TECNICO");
 
