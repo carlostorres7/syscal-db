@@ -84,3 +84,46 @@ insert into users (name,email, username, password, rol_id) values
     ("Edwar Erazo", "edwarerazo321@gmail.com", "edwarerazo", "sa..", 1),
     ("Carlos Torres", "edwarerazo321@gmail.com", "carlostorres", "sa..", 3),
     ("Sara Erazo", "edwarerazo321@gmail.com", "saraerazo", "sa..", 2);
+    
+
+drop table if exists vehicles;
+create table vehicles (
+    id serial primary key,
+    brand varchar(25) not null,
+    reference varchar(25) not null,
+    placa varchar(15)not null unique,
+    color varchar(25) not null,
+    createdbyid bigint unsigned not null,
+    createdat timestamp not null default now(),
+    updatedat timestamp not null default now(),
+    foreign key (createdbyid) references users (id)
+);
+
+drop table if exists orders;
+create table orders (
+	id serial primary key,
+	vehicle_id bigint unsigned not null,
+	technical_id bigint unsigned not null,
+	client_id bigint unsigned not null,
+	createdbyid bigint unsigned not null,
+	createdat timestamp not null default now(),
+        updatedat timestamp not null default now(),
+	foreign key (createdbyid) references users (id),
+	foreign key (vehicle_id) references vehicles (id),
+	foreign key (technical_id) references users (id),
+	foreign key (client_id) references clients (id) 
+);
+
+drop table if exists detail;
+create table detail (
+	id serial primary key,
+	order_id bigint unsigned not null,
+	service_id bigint unsigned not null,
+	product_id bigint unsigned not null,
+        count integer not null default 0,
+	createdat timestamp not null default now(),
+        updatedat timestamp not null default now(),
+	foreign key (order_id) references orders (id),
+	foreign key (service_id) references services (id),
+	foreign key (product_id) references product (id)
+);
